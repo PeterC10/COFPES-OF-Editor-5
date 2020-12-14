@@ -30,9 +30,6 @@ class OptionFile:
         self.file_name = ""
         self.game_type = None
 
-        # for i, v in enumerate(self.of_key):
-        #     self.of_key[i] = v + 1815543808
-
         self.read_option_file()
 
         self.set_clubs()
