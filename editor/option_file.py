@@ -132,7 +132,6 @@ class OptionFile:
         """
         Encrypt OF.
         """
-        count = 0
         for i in range(1, 10):
             k = 0
             a = self.of_block[i]
@@ -140,7 +139,6 @@ class OptionFile:
                 if a + 4 > self.of_block[i] + self.of_block_size[i]:
                     break
 
-                count += 1
                 p = bytes_to_int(self.data, a)
                 c = self.of_key[k] + ((p ^ 0x6C371625) - 0x6C371625)
 
