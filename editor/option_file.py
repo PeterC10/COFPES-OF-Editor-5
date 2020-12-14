@@ -40,7 +40,7 @@ class OptionFile:
         """
         game_type_map = {
             "KONAMI-WIN32PES5OPT": GameType.pc_pes,
-            "KONAMI-WIN32WEXUOPT": GameType.pc_pwe,
+            "KONAMI-WIN32WE9KOPT": GameType.pc_pwe,
         }
         return game_type_map.get(file_name)
 
