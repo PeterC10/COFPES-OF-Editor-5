@@ -70,7 +70,7 @@ class OptionFile:
 
         self.data[45] = 1
         self.data[46] = 1
-        
+
         # Unknown indexes need updating here, might have no effect
         # See Java code: https://github.com/PeterC10/PES5Editor/blob/master/src/editor/OptionFile.java#L170
         # self.data[?] = 1
@@ -157,15 +157,13 @@ class OptionFile:
         """
         Set checksums.
         """
-        for i in range(1, 10):
+        for i in range(0, 10):
             checksum = 0
-            while True:
-                a = self.of_block[i]
-                checksum += bytes_to_int(self.data, a)
 
-                a += 4
-                if a <= self.of_block[i] + self.of_block_size[i]:
-                    break
+            for a in range(
+                self.of_block[i], self.of_block[i] + self.of_block_size[i], 4
+            ):
+                checksum += bytes_to_int(self.data, a)
 
             self.data[self.of_block[i] - 8] = checksum & 0x000000FF
             self.data[self.of_block[i] - 7] = (
