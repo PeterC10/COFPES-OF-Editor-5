@@ -70,11 +70,8 @@ class OptionFile:
 
         self.data[45] = 1
         self.data[46] = 1
-
-        # Unknown indexes need updating here, might have no effect
-        # See Java code: https://github.com/PeterC10/PES5Editor/blob/master/src/editor/OptionFile.java#L170
-        # self.data[?] = 1
-        # self.data[?] = 1
+        self.data[5958] = 1
+        self.data[5959] = 1
 
         self.encrypt()
         self.checksums()
